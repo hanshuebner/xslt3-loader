@@ -1,10 +1,13 @@
 
+import { readFileSync, writeSync } from 'fs';
+
 import { exec } from 'child_process';
+
 import { file } from 'tmp';
 
 import { getOptions } from 'loader-utils';
+
 import validateOptions from 'schema-utils';
-import * as fs from 'fs';
 
 const schema = {
   type: 'object',
@@ -21,15 +24,19 @@ export default function(source) {
     validateOptions(schema, options, 'XSLT3 Loader');
 
     const callback = this.async();
-    file((err, xsltPath, fd) => {
-        if (err) throw err;
-        fs.writeSync(fd, source);
-        file((err, sefPath) => {
+    file((err1, xsltPath, fd) => {
+        if (err1) throw err1;
+        writeSync(fd, source);
+        file((err2, sefPath) => {
+            if (err2) throw err2;
             const script = `xslt3 -t -nogo -xsl:${xsltPath} -export:${sefPath}`;
-            const command = exec(script, options, function(err, result) {
-                if (err) return callback(err);
-                callback(null, fs.readFileSync(sefPath));
-            });
+            const command = exec(script, options,
+                                 (err) => {
+                                     if (err) return callback(err);
+                                     const sef = readFileSync(sefPath);
+                                     return callback(null, `export const stylesheet = ${sef}`);
+                                 }
+            );
             command.stdin.end();
         });
     });
