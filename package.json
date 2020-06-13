@@ -20,7 +20,8 @@
         "lint": "eslint --cache .",
         "prepare": "npm run build",
         "release": "standard-version",
-        "defaults": "webpack-defaults"
+        "defaults": "webpack-defaults",
+        "test": "jest"
     },
     "repository": {
         "type": "git",
@@ -34,14 +35,18 @@
     },
     "devDependencies": {
         "@babel/cli": "^7.8.4",
-        "@babel/core": "^7.9.0",
+        "@babel/core": "^7.10.2",
+        "@babel/preset-env": "^7.10.2",
         "@webpack-contrib/defaults": "^6.3.0",
         "@webpack-contrib/eslint-config-webpack": "^3.0.0",
+        "babel-jest": "^26.0.1",
         "cross-env": "^7.0.2",
         "del-cli": "^3.0.0",
         "eslint": "^7.2.0",
-        "eslint-plugin-import": "^2.20.2",
         "eslint-config-prettier": "^6.11.0",
+        "eslint-plugin-import": "^2.20.2",
+        "jest": "^26.0.1",
+        "memfs": "^3.2.0",
         "standard-version": "^8.0.0",
         "webpack": "^4.43.0"
     }
