@@ -1,0 +1,71 @@
+{
+    "name": "xslt3-loader",
+    "version": "0.0.1",
+    "description": "A Webpack loader that compiles XSLT transforms to Saxon's sef format",
+    "keywords": [
+        "webpack",
+        "webpack-loader",
+        "loader",
+        "xslt",
+        "xslt3",
+        "saxon-js"
+    ],
+    "main": "dist/cjs.js",
+    "scripts": {
+        "start": "npm run build -- -w",
+        "clean": "del-cli dist",
+        "prebuild": "npm run clean",
+        "build": "cross-env NODE_ENV=production babel src -d dist --copy-files",
+        "commitlint": "commitlint --from=master",
+        "security": "npm audit",
+        "lint:prettier": "prettier --list-different .",
+        "lint:js": "eslint --cache .",
+        "lint": "npm-run-all -l -p \"lint:**\"",
+        "test:only": "cross-env NODE_ENV=test jest",
+        "test:watch": "npm run test:only -- --watch",
+        "test:coverage": "npm run test:only -- --collectCoverageFrom=\"src/**/*.js\" --coverage",
+        "pretest": "npm run lint",
+        "test": "npm run test:coverage",
+        "prepare": "npm run build",
+        "release": "standard-version",
+        "defaults": "webpack-defaults"
+    },
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/hanshuebner/xslt3-loader.git"
+    },
+    "author": "hans.huebner@gmail.com",
+    "license": "MIT",
+    "dependencies": {
+        "loader-utils": "^2.0.0",
+        "saxon-js": "^2.0.2",
+        "schema-utils": "^2.6.6",
+        "tmp": "^0.2.1",
+        "xslt3": "^2.0.2"
+    },
+    "devDependencies": {
+        "@babel/cli": "^7.8.4",
+        "@babel/core": "^7.9.0",
+        "@babel/preset-env": "^7.9.5",
+        "@commitlint/cli": "^8.3.5",
+        "@commitlint/config-conventional": "^8.3.4",
+        "@webpack-contrib/defaults": "^6.3.0",
+        "@webpack-contrib/eslint-config-webpack": "^3.0.0",
+        "babel-jest": "^25.4.0",
+        "cross-env": "^7.0.2",
+        "del": "^5.1.0",
+        "del-cli": "^3.0.0",
+        "eslint": "^6.8.0",
+        "eslint-config-prettier": "^6.11.0",
+        "eslint-plugin-import": "^2.20.2",
+        "husky": "^4.2.5",
+        "jest": "^25.4.0",
+        "lint-staged": "^10.1.7",
+        "memfs": "^3.1.2",
+        "npm-run-all": "^4.1.5",
+        "prettier": "^2.0.5",
+        "standard-version": "^7.1.0",
+        "url-loader": "^4.1.0",
+        "webpack": "^4.43.0"
+    }
+}
