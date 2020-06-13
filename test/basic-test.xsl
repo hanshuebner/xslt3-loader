@@ -2,6 +2,6 @@
                 version="3.0">
 
   <xsl:template match="/">
-    <hello>world</hello>
+    <hello><xsl:apply-templates/></hello>
   </xsl:template>
 </xsl:stylesheet>
