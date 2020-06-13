@@ -4,6 +4,9 @@ All notable changes to this project will be documented in this file. See [standa
 
 ### [0.0.5](https://github.com/hanshuebner/xslt3-loader/compare/v0.0.4...v0.0.5) (2020-06-13)
 
+Add test.
+
+
 ### [0.0.4](https://github.com/hanshuebner/xslt3-loader/compare/v0.0.3...v0.0.4) (2020-06-13)
 
 Touchup and cleanup.
