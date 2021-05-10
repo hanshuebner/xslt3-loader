@@ -14,7 +14,7 @@ export default function(source) {
         writeSync(fd, source);
         file((err2, sefPath) => {
             if (err2) throw err2;
-            const script = `xslt3 -t -nogo -xsl:${xsltPath} -export:${sefPath}`;
+            const script = `npx xslt3 -t -nogo -xsl:${xsltPath} -export:${sefPath}`;
             const command = exec(script, {},
                                  (err) => {
                                      if (err) return callback(err);
