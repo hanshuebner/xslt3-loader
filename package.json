@@ -49,6 +49,7 @@
         "memfs": "^3.2.0",
         "saxon-js": "^2.0.2",
         "standard-version": "^8.0.0",
-        "webpack": "^4.43.0"
+        "webpack": "^4.43.0",
+        "xslt3": "^2.1.0"
     }
 }
