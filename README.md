@@ -7,13 +7,6 @@ result will be a module exporting a single constant, `stylesheet`,
 which can then be imported into the frontend application and used by
 Saxon-JS 2.  At this point, only the free (XX) compiler is supported.
 
-## Installation
-
-Before using this loader, the xslt3 command line utility needs to be
-installed on the local system using
-
-    npm install -g xslt3
-
 ## Usage
 
 In your `module.rules` section of `webpack.config.js`, add a rule like
@@ -24,11 +17,11 @@ so:
         use: [ 'xslt3-loader' ]
     }
 
-In your application source, you can then import a stylesheet like so:
+In your application source, you can then import a stylesheet like this:
 
     import { stylesheet as example } from '../example.xsl';
 
-The stylesheet can then be used in invokations to Saxon-JS 2 like so:
+The stylesheet can then be used in invokations to Saxon-JS 2:
 
     console.log(SaxonJS.transform({ stylesheetInternal: example,
                                     sourceText: '<foo>bar</foo>',
