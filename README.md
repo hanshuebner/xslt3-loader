@@ -21,7 +21,7 @@ In your application source, you can then import a stylesheet like this:
 
     import { stylesheet as example } from '../example.xsl';
 
-The stylesheet can then be used in invokations to Saxon-JS 2:
+The stylesheet can then be used in invocations to Saxon-JS 2:
 
     console.log(SaxonJS.transform({ stylesheetInternal: example,
                                     sourceText: '<foo>bar</foo>',
